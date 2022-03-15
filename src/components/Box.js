@@ -1,12 +1,12 @@
 import React from 'react'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 function Box(props) {
 
-    const [state, setState] = useState(props.on)
+    // const [state, setState] = useState(props.on)
 
     const styles = {
-        backgroundColor : state? "#222222" : "transparent",
+        backgroundColor : props.on? "#222222" : "transparent",
         borderRadius: "10px",
         width: "100px",
         height: "100px",
@@ -18,16 +18,16 @@ function Box(props) {
     };
     
       
-    function flip(){
-        setState(prevState=> !prevState)
-        console.log(`Box: ${props.value} color flipped`)
-        console.log(state)
-    }
+    // function flip(){
+    //     setState(prevState=> !prevState)
+    //     console.log(`Box: ${props.value} color flipped`)
+    //     console.log(state)
+    // }
       
   return (
     <div style = {styles}
          className='main' 
-         onClick={flip}
+         onClick={()=>props.toggleClick(props.value)}
        > 
         {props.value}
     </div>
